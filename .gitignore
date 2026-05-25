@@ -1,0 +1,23 @@
+# Virtual environment
+.venv/
+
+# Data CSVs — download via: python src/rvvcca_ingestion.py
+data/raw/*.csv
+data/processed/*.csv
+
+# Pipeline outputs — regenerated each run
+outputs/figures/*.png
+outputs/maps/*.html
+outputs/reports/*.json
+outputs/reports/*.txt
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Backup files
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
