@@ -1,16 +1,16 @@
 """
 inject_findings.py
 ------------------
-Reads outputs/reports/aeris_findings.json and injects ALL pipeline-derived
-data into aeris_portfolio.html, replacing every scientific value between
+Reads outputs/reports/Strata_findings.json and injects ALL pipeline-derived
+data into Strata_portfolio.html, replacing every scientific value between
 the sentinel comments with values computed from real RVVCCA data.
 
 Data flow enforced:
-  aeris_processed.csv → analysis.py → findings.json → inject_findings.py → HTML
+  Strata_processed.csv → analysis.py → findings.json → inject_findings.py → HTML
 
 Usage:
   python src/inject_findings.py
-  python src/inject_findings.py --html path/to/aeris_portfolio.html
+  python src/inject_findings.py --html path/to/Strata_portfolio.html
   python src/inject_findings.py --dry-run
 """
 
@@ -24,11 +24,11 @@ from datetime import datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from config import OUTPUT_PATH
 
-FINDINGS_PATH = os.path.join(OUTPUT_PATH, "reports", "aeris_findings.json")
-DEFAULT_HTML  = os.path.join(os.path.dirname(__file__), "..", "aeris_portfolio.html")
+FINDINGS_PATH = os.path.join(OUTPUT_PATH, "reports", "strata_findings.json")
+DEFAULT_HTML  = os.path.join(os.path.dirname(__file__), "..", "strata_portfolio.html")
 
-START_SENTINEL = "// __AERIS_DATA_START__"
-END_SENTINEL   = "// __AERIS_DATA_END__"
+START_SENTINEL = "// __Strata_DATA_START__"
+END_SENTINEL   = "// __Strata_DATA_END__"
 
 # Atmospheric colour semantics — kept in injector so colours are consistent
 AM_COLORS = {

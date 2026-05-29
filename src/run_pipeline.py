@@ -1,7 +1,7 @@
 """
 run_pipeline.py
 ---------------
-AERIS end-to-end pipeline.
+Strata end-to-end pipeline.
 
 Run from the project root:
     python src/run_pipeline.py                  # auto-selects real or synthetic data
@@ -48,7 +48,7 @@ from inject_findings import inject as inject_portfolio
 def run(use_synthetic: bool = False, fetch_fresh: bool = False,
         date_from: str = "2022-01-01", date_to: str = "2022-03-31"):
 
-    print("\n── AERIS Pipeline ──────────────────────────────────")
+    print("\n── Strata Pipeline ──────────────────────────────────")
 
     # ── 1. Data loading ──────────────────────────────────────────────────────
     print("\n[1/8] Loading data...")
@@ -147,7 +147,7 @@ def run(use_synthetic: bool = False, fetch_fresh: bool = False,
     report = generate_report(df, save=True)
 
     # Save processed data
-    processed_path = os.path.join(BASE_PATH, "processed", "aeris_processed.csv")
+    processed_path = os.path.join(BASE_PATH, "processed", "Strata_processed.csv")
     os.makedirs(os.path.dirname(processed_path), exist_ok=True)
     df.to_csv(processed_path, index=False)
     print(f"  Processed data → {processed_path}")
@@ -160,7 +160,7 @@ def run(use_synthetic: bool = False, fetch_fresh: bool = False,
 
     # Auto-inject into portfolio HTML if it exists
     portfolio_path = os.path.join(
-        os.path.dirname(__file__), "..", "aeris_portfolio.html"
+        os.path.dirname(__file__), "..", "Strata_portfolio.html"
     )
     inject_portfolio(portfolio_path, findings, verbose=True)
 
@@ -169,12 +169,12 @@ def run(use_synthetic: bool = False, fetch_fresh: bool = False,
     for k, v in report.items():
         print(f"  {k}: {v}")
 
-    print("\n✓ AERIS pipeline complete.\n")
+    print("\n✓ Strata pipeline complete.\n")
     return df
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run the AERIS pipeline")
+    parser = argparse.ArgumentParser(description="Run the Strata pipeline")
     parser.add_argument("--synthetic", action="store_true",
                         help="Force synthetic data (skip real data)")
     parser.add_argument("--fetch", action="store_true",

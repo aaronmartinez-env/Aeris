@@ -1,4 +1,4 @@
-# AERIS — Atmospheric Interpretation System
+# Strata — Atmospheric Interpretation System
 
 **An exploratory atmospheric representation framework for Valencia, Spain**
 
@@ -6,7 +6,7 @@
 [![Data: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-lightgrey.svg)](https://opendata.vlci.valencia.es)
 [![Pipeline: Python 3.12](https://img.shields.io/badge/Python-3.12-green.svg)](https://python.org)
 
-**Live portfolio:** [aaronmartinez-env.github.io/AERIS/aeris_portfolio.html](https://aaronmartinez-env.github.io/AERIS/aeris_portfolio.html)
+🌐 **Live portfolio:** [aaronmartinez-env.github.io/Strata/Strata_portfolio.html](https://aaronmartinez-env.github.io/Strata/Strata_portfolio.html)
 
 ---
 
@@ -14,7 +14,7 @@
 
 > How accurately do public-facing AQI representations reflect actual atmospheric conditions in Valencia?
 
-AERIS quantifies the divergence between simplified public air quality indices (typically PM10-only) and a custom multi-pollutant composite index (CMPI) incorporating PM2.5, PM10, NO₂, and O₃. All analysis is applied to 160,076 hourly observations from Valencia's RVVCCA monitoring network across January 2021 – December 2022.
+Strata quantifies the divergence between simplified public air quality indices (typically PM10-only) and a custom multi-pollutant composite index (CMPI) incorporating PM2.5, PM10, NO₂, and O₃. All analysis is applied to 160,076 hourly observations from Valencia's RVVCCA monitoring network across January 2021 – December 2022.
 
 ---
 
@@ -36,9 +36,9 @@ All values are pipeline-derived. No values are manually hardcoded in the fronten
 
 ---
 
-## What AERIS is
+## What Strata is
 
-AERIS is an **exploratory atmospheric interpretation framework** — not a replacement for official AQI systems. It:
+Strata is an **exploratory atmospheric interpretation framework** — not a replacement for official AQI systems. It:
 
 - Builds a custom multi-pollutant composite index (CMPI) for comparative analysis
 - Quantifies divergence between the CMPI and simplified public PM10-only indices
@@ -47,7 +47,7 @@ AERIS is an **exploratory atmospheric interpretation framework** — not a repla
 - Quantifies source attribution ambiguity via the Atmospheric Complexity Index (ACI)
 - Visualises findings through an interactive atmospheric portfolio
 
-AERIS does **not** validate health outcomes, certify toxicological risk, or replace official RVVCCA reporting.
+Strata does **not** validate health outcomes, certify toxicological risk, or replace official RVVCCA reporting.
 
 ---
 
@@ -74,7 +74,7 @@ python src/rvvcca_ingestion.py
 ## Project structure
 
 ```
-AERIS/
+Strata/
 ├── src/
 │   ├── run_pipeline.py        # Main entry point — runs all 9 steps
 │   ├── rvvcca_ingestion.py    # Downloads and parses RVVCCA data
@@ -99,9 +99,9 @@ AERIS/
 ├── outputs/
 │   ├── figures/               # PNG charts
 │   ├── maps/                  # Folium HTML maps
-│   └── reports/               # aeris_findings.json · aeris_report.txt
+│   └── reports/               # Strata_findings.json · Strata_report.txt
 ├── notebooks/                 # Jupyter exploration notebooks
-├── aeris_portfolio.html       # Interactive portfolio — open in any browser
+├── Strata_portfolio.html       # Interactive portfolio — open in any browser
 ├── requirements.txt
 └── README.md
 ```
@@ -110,7 +110,7 @@ AERIS/
 
 ## Pipeline
 
-AERIS runs as a single command:
+Strata runs as a single command:
 
 ```bash
 python src/run_pipeline.py
@@ -126,7 +126,7 @@ This executes 9 sequential steps:
 6. **Source attribution** — probabilistic scoring across four source types
 7. **Compute ACI** — Shannon entropy over attribution scores
 8. **Generate outputs** — maps, charts, interpolated fields, reports
-9. **Deep analysis + inject** — exports `aeris_findings.json` and updates `aeris_portfolio.html`
+9. **Deep analysis + inject** — exports `Strata_findings.json` and updates `Strata_portfolio.html`
 
 Additional flags:
 
@@ -143,8 +143,8 @@ python src/inject_findings.py               # Update portfolio without re-runnin
 
 ```bash
 # Clone the repository
-git clone https://github.com/aaronmartinez-env/AERIS.git
-cd AERIS
+git clone https://github.com/aaronmartinez-env/Strata.git
+cd Strata
 
 # Create virtual environment
 python -m venv .venv
@@ -214,17 +214,17 @@ Shannon entropy applied to four rule-based source attribution scores, normalised
 
 ## Reproducibility
 
-Every scientific value displayed in `aeris_portfolio.html` is derived from the RVVCCA dataset through the pipeline. The data flow is strictly enforced:
+Every scientific value displayed in `Strata_portfolio.html` is derived from the RVVCCA dataset through the pipeline. The data flow is strictly enforced:
 
 ```
 data/raw/air_quality_real.csv
   → src/analysis.py
-  → outputs/reports/aeris_findings.json
+  → outputs/reports/Strata_findings.json
   → src/inject_findings.py
-  → aeris_portfolio.html
+  → Strata_portfolio.html
 ```
 
-No scientific values are manually hardcoded in the frontend. The data block in `aeris_portfolio.html` is stamped with a pipeline generation timestamp on every run.
+No scientific values are manually hardcoded in the frontend. The data block in `Strata_portfolio.html` is stamped with a pipeline generation timestamp on every run.
 
 ---
 
@@ -236,4 +236,4 @@ No scientific values are manually hardcoded in the frontend. The data block in `
 
 ---
 
-*AERIS — Environmental Science Portfolio · Aaron Martinez · 2025*
+*Strata — Environmental Science Portfolio · Aaron Martinez · 2025*

@@ -1,7 +1,7 @@
 """
 data_loader.py
 --------------
-Unified data loader for AERIS.
+Unified data loader for Strata.
 Automatically uses real RVVCCA data if available,
 falls back to synthetic data for development/testing.
 """
@@ -19,7 +19,7 @@ def load_air_quality(
     prefer_real: bool = True,
 ) -> pd.DataFrame:
     """
-    Load air quality data for AERIS.
+    Load air quality data for Strata.
 
     Priority order (when prefer_real=True):
       1. data/raw/air_quality_real.csv   — real RVVCCA data (fetched by rvvcca_ingestion.py)
@@ -32,7 +32,7 @@ def load_air_quality(
 
     Returns
     -------
-    pd.DataFrame in AERIS standard format.
+    pd.DataFrame in Strata standard format.
     """
     candidates = []
 

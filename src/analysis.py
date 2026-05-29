@@ -6,7 +6,7 @@ Exports a complete findings JSON that serves as the single source of truth
 for the portfolio frontend — no scientific values should be hardcoded elsewhere.
 
 Data flow:
-  aeris_processed.csv → run_analysis() → findings.json → inject_findings.py → portfolio HTML
+  Strata_processed.csv → run_analysis() → findings.json → inject_findings.py → portfolio HTML
 
 Usage:
   python src/analysis.py
@@ -34,7 +34,7 @@ def run_analysis(df: pd.DataFrame, verbose: bool = True) -> dict:
     findings = {}
 
     if verbose:
-        print("\n── AERIS Deep Analysis ─────────────────────────────")
+        print("\n── Strata Deep Analysis ─────────────────────────────")
 
     df = df.copy()
     df['datetime'] = pd.to_datetime(df['datetime'])
@@ -315,7 +315,7 @@ def run_analysis(df: pd.DataFrame, verbose: bool = True) -> dict:
     return findings
 
 
-def save_findings(findings: dict, filename: str = 'aeris_findings.json') -> str:
+def save_findings(findings: dict, filename: str = 'Strata_findings.json') -> str:
     os.makedirs(os.path.join(OUTPUT_PATH, 'reports'), exist_ok=True)
     path = os.path.join(OUTPUT_PATH, 'reports', filename)
     with open(path, 'w') as f:
@@ -326,7 +326,7 @@ def save_findings(findings: dict, filename: str = 'aeris_findings.json') -> str:
 
 def print_research_summary(findings: dict) -> None:
     print("\n" + "=" * 52)
-    print("  AERIS — Research Question Summary")
+    print("  Strata — Research Question Summary")
     print("=" * 52)
     s  = findings['summary']
     d  = findings['diurnal']
@@ -361,7 +361,7 @@ def print_research_summary(findings: dict) -> None:
 if __name__ == "__main__":
     sys.path.insert(0, os.path.dirname(__file__))
     processed_path = os.path.join(
-        os.path.dirname(__file__), '../data/processed/aeris_processed.csv'
+        os.path.dirname(__file__), '../data/processed/Strata_processed.csv'
     )
     if not os.path.exists(processed_path):
         print(f"No processed data at {processed_path}")

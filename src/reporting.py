@@ -1,7 +1,7 @@
 """
 reporting.py
 ------------
-Summary and reporting layer for AERIS.
+Summary and reporting layer for Strata.
 Answers the core research question: how well do public AQI
 representations reflect actual atmospheric conditions?
 """
@@ -48,7 +48,7 @@ def generate_summary(row: pd.Series) -> str:
 
 def generate_report(df: pd.DataFrame, save: bool = True) -> dict:
     """
-    Generate a summary report answering AERIS's research question.
+    Generate a summary report answering Strata's research question.
 
     Returns a dict of key findings. Optionally saves a text report
     and a divergence plot.
@@ -89,10 +89,10 @@ def generate_report(df: pd.DataFrame, save: bool = True) -> dict:
     # --- Save text report ---
     if save:
         os.makedirs(os.path.join(OUTPUT_PATH, "reports"), exist_ok=True)
-        report_path = os.path.join(OUTPUT_PATH, "reports", "aeris_report.txt")
+        report_path = os.path.join(OUTPUT_PATH, "reports", "Strata_report.txt")
 
         with open(report_path, "w") as f:
-            f.write("AERIS — Summary Report\n")
+            f.write("Strata — Summary Report\n")
             f.write("=" * 50 + "\n\n")
             for k, v in report.items():
                 f.write(f"{k}:\n  {v}\n\n")

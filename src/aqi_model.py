@@ -7,7 +7,7 @@ The scientific AQI is a weighted composite of normalized pollutants.
 The public AQI mimics simplified consumer representations (e.g. weather apps)
 that often rely only on PM10 or a basic index, losing nuance.
 
-This contrast is the core of AERIS's research question.
+This contrast is the core of Strata's research question.
 """
 
 import pandas as pd

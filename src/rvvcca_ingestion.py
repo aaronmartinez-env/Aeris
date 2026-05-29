@@ -80,7 +80,7 @@ STATION_COORDS = {
     "Puerto Moll Trans. Ponent":    {"latitude": 39.4510, "longitude": -0.3190},
 }
 
-# ── Column mapping (raw CSV -> AERIS standard) ────────────────────────────────
+# ── Column mapping (raw CSV -> Strata standard) ────────────────────────────────
 
 COLUMN_MAP = {
     # Station & time
@@ -182,7 +182,7 @@ def download_csv(url: str, verbose: bool = True) -> pd.DataFrame:
 
 def parse_and_normalise(df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
     """
-    Normalise raw RVVCCA CSV into AERIS standard format.
+    Normalise raw RVVCCA CSV into Strata standard format.
     """
     # 1. Normalise column names
     df.columns = [c.lower().strip() for c in df.columns]
@@ -288,7 +288,7 @@ def parse_and_normalise(df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
         print(f"  ⚠ No coordinates found for: {list(missing_coords)}")
         print(f"    Add them to STATION_COORDS in rvvcca_ingestion.py")
 
-    # 5. Select AERIS standard columns (plus bonus pollutants if present)
+    # 5. Select Strata standard columns (plus bonus pollutants if present)
     core = ["datetime", "station", "latitude", "longitude",
             "pm25", "pm10", "no2", "o3",
             "wind_speed", "wind_direction", "temperature", "humidity"]
